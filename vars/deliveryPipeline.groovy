@@ -2,10 +2,10 @@
 
 def getAgent(){
 	if(BRANCH_NAME=="master"){
-		return "vm-master"
+		return "dockerworker"
 	}
 	else{
-		return "vm-dev"
+		return "dockerworker2"
 	}
 }
 
