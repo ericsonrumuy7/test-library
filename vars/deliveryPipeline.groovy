@@ -1,9 +1,17 @@
 #!/usr/bin/env groovy
 
+def getAgent() {
+	if (BRANCH_NAME=="master") {
+		return "dockerworker"
+	} else {
+		return "dockerworker2"
+	}
+}
 def call(Map param){
+	def agentName = getAgent()
 	pipeline {
 		agent {
-			label "dockerworker"
+			label "${agentName}"
 		}
 		stages {
 			stage('Build') {
