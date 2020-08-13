@@ -7,6 +7,7 @@ def getAgent() {
 		return "dockerworker2"
 	}
 }
+
 def call(Map param){
 	def agentName = getAgent()
 	pipeline {
@@ -36,7 +37,7 @@ def call(Map param){
 			}
 			stage('Run app') {
 				steps {
-					sh 'docker run -p my-app'
+					sh 'docker run my-app'
 				}
 			}
 		}
